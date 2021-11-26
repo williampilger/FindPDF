@@ -12,7 +12,7 @@ except:
 try:
     import textract #para converter PDF em TXT
 except:
-    mp.install_lib("EbookLib")
+    #mp.install_lib("EbookLib")
     mp.install_lib("textract")
     mp.restart_program()
 
