@@ -39,7 +39,8 @@ def getTxt(fileName, salvaCache, forceRefhesh):
                 texto = file.read()
         else:#precisa ser atualizado
             with open(tempName, 'wt') as file:
-                file.write(pdf2txt(fileName))
+                texto = pdf2txt(fileName)
+                file.write(texto)
     else:
         texto = pdf2txt(fileName)
 
