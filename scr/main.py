@@ -12,6 +12,7 @@ except:
 try:
     import textract #para converter PDF em TXT
 except:
+    mp.install_lib("EbookLib")
     mp.install_lib("textract")
     mp.restart_program()
 
@@ -19,7 +20,8 @@ except:
 def pdf2txt(fileName):
     try:
         texto = textract.process(fileName).decode("utf-8")
-    except:
+    except Exception as e:
+        be.registra_log_geral(str(e))
         texto = ""
     texto = texto.replace("\\n", "\n")
     return texto
@@ -93,8 +95,9 @@ def finder():
             print(f"Processando o conteúdo dos arquivos... {cont}/{total}")
             try:
                 cache[arquivo] = getTxt(arquivo, True, False)
-            except:
-                be.registra_log_geral(f"Erro ao carregar arquivo '{arquivo}'")
+            except Exception as e:
+                be.registra_log_geral(f"Erro ao carregar arquivo '{arquivo}'. e:{str(e)}")
+                #be.registra_log_geral()
             cont += 1
 
     pesquisa = ''
@@ -129,14 +132,14 @@ def finder():
                 print(f" {carac} {text}")
                 index += 1
         dig = readchar.readkey()
-        if(dig == readchar.key.ESC):#esc
+        if(dig == readchar.key.ESC or dig == '\x1b'):#esc
             be.sair(1)
         elif(dig == '\t' or dig == '\r'):#tab ou enter
             if(sel != -1):#existe um ítem selecionado
                 try:
                     webbrowser.open(cache[p[sel]])
-                except:
-                    be.registra_log_geral("Impossível abrir o arquivo solicitado.")
+                except Exception as e:
+                    be.registra_log_geral(f"Impossível abrir o arquivo solicitado. e:{str(e)}")
             else:
                 maxResultPrint += 10
         elif(dig == readchar.key.UP):#seta pra CIMA
@@ -145,7 +148,7 @@ def finder():
         elif(dig == readchar.key.DOWN):#seta pra BAIXO
             if(sel < len(p)):
                 sel += 1
-        elif(dig == readchar.key.BACKSPACE):#back space
+        elif(dig == readchar.key.BACKSPACE or dig == '\x08'):#back space
             pesquisa = pesquisa[:-1]
             repesquisa = True
         else:
