@@ -4,7 +4,6 @@ try:
     import multiplat as mp
     import os
     from os import path
-    import json
     import webbrowser
 except:
     print("Biblioteca necessária não disponível.\n\nEstamos finalizando.")
