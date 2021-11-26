@@ -63,4 +63,4 @@ def startfile(fileName):
     if(eh_linux):
         pass
     if(eh_windows):
-        os.startfile(fileName)
+        os.system(f"start \"{fileName}\"")

@@ -6,7 +6,7 @@ from os import path
 from datetime import datetime
 import multiplat
 
-__dir__ = path.dirname(path.realpath(__file__))#obtém o diretório onde ESTE arquivo está localizado
+__dir__ = path.dirname(path.realpath(__file__))
 
 def registra_log_geral(texto):
     try:
