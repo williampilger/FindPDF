@@ -97,9 +97,9 @@ def finder():
     if( not path.isfile(configFile)):#se não existe arquivo de configurações, o cria
         with open(configFile, "wt") as file:
             file.write("""mode	cache
-                          cachemode	ram
-                          ResultPrint	50
-                          TamPrint	120""")
+cachemode	ram
+ResultPrint	50
+TamPrint	120""")
     config = be.appConfig(configFile)
     ResultPrint = int(config.get("ResultPrint"))
     TamPrint = int(config.get("TamPrint"))
