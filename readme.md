@@ -2,6 +2,9 @@
 
 Este script auxilia na pesquisa em pastas com inúmeros arquivos PDF. A pesquisa é feita em todos os arquivos do doretório e subdiretórios.
 
+**Ps**: Embora funcione no **windows**, ferramenta desenvolvida primeiramente para **Linux**, sistema no qual o desempenho atualmente é muito maior.
+Para compatibilizar com o windows foi necessária uma ferramenta externa que tem baixa eficiência.
+
 ## Instalação
 
 Tanto no windows quanto no linux a compilação da aplicação não funciona, e atualmente a única solução é a cópia de todos os arquivos para o diretório onde se deseja realizar a pesquisa.
