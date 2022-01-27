@@ -1,4 +1,4 @@
-# PDF Finder
+# PDF Finder (em desenvolvimento)
 
 Este script auxilia na pesquisa em pastas com inúmeros arquivos PDF. A pesquisa é feita em todos os arquivos do doretório e subdiretórios.
 
